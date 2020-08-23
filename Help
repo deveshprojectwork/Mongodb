@@ -1,0 +1,60 @@
+Node 
+
+email sending
+>npm install nodemailer
+
+
+Express apps can use any database supported by Node (Express itself doesn't define any specific additional behavior/requirements 
+for database management). There are many popular options, including PostgreSQL, MySQL, Redis, SQLite, and MongoDB.
+
+Which ere are two common approaches for interacting with a database: ??
+
+Using the databases' native query language (e.g. SQL)
+Using an Object Data Model ("ODM") or an Object Relational Model ("ORM"). An ODM/ORM represents the website's data as JavaScript objects, which are then 
+mapped to the underlying database. Some ORMs are tied to a specific database, while others provide a database-agnostic backend.
+
+What ORM/ODM should I use?
+There are many ODM/ORM solutions available on the NPM package manager site (check out the odm and orm tags for a subset!).
+
+A few solutions that were popular at the time of writing are:
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose
+
+
+Mongoose: Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
+Waterline: An ORM extracted from the Express-based Sails web framework. It provides a uniform API for accessing numerous different databases, including Redis, MySQL, LDAP, MongoDB, and Postgres.
+Bookshelf: Features both promise-based and traditional callback interfaces, providing transaction support, eager/nested-eager relation loading, polymorphic associations, and support for one-to-one, one-to-many, and many-to-many relations. Works with PostgreSQL, MySQL, and SQLite3.
+Objection: Makes it as easy as possible to use the full power of SQL and the underlying database engine (supports SQLite3, Postgres, and MySQL).
+Sequelize is a promise-based ORM for Node.js and io.js. It supports the dialects PostgreSQL, MySQL, MariaDB, SQLite, and MSSQL and features solid transaction support, relations, read replication and more.
+Node ORM2 is an Object Relationship Manager for NodeJS. It supports MySQL, SQLite, and Progress, helping to work with the database using an object-oriented approach.
+GraphQL: Primarily a query language for restful APIs, GraphQL is very popular, and has features available for reading data from databases.
+
+Below we have chosen to define the relationship between Book/Genre and Book/Author in the Book schema, and the relationship between the Book/BookInstance in the BookInstance Schema. This choice was somewhat arbitrary — we could equally well have had the field in the other schema.
+
+
+
+Most of the SchemaTypes (the descriptors after “type:” or after field names) are self-explanatory. The exceptions are:
+
+ObjectId: Represents specific instances of a model in the database. For example, a book might use this to represent its author object. This will actually contain the unique ID (_id) for the specified object. We can use the populate() method to pull in the associated information when needed.
+Mixed: An arbitrary schema type.
+[]: An array of items. You can perform JavaScript array operations on these models (push, pop, unshift, etc.). The examples above show an array of objects without a specified type and an array of String objects, but you can have an array of any type of object.
+The code also shows both ways of declaring a field:
+
+Field name and type as a key-value pair (i.e. as done with fields name, binary and living).
+Field name followed by an object defining the type, and any other options for the field. Options include things like:
+default values.
+built-in validators (e.g. max/min values) and custom validation functions.
+Whether the field is required
+Whether String fields should automatically be set to lowercase, uppercase, or trimmed (e.g. { type: String, lowercase: true, trim: true })
+For more information about options see SchemaTypes (Mongoose docs).
+
+
+Mongooese
+npm install mongoose --save
+
+Node with Mongo
+
+
+working with the exrpress
+npm install -g Express
+Express
